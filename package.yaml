@@ -21,6 +21,12 @@ description:         Please see the README on Github at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- parallel
+- random
+- time
+- parallel
+- repa
+- JuicyPixels >= 3.2.9
 
 library:
   source-dirs: src
