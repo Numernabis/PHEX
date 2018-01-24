@@ -3,6 +3,8 @@ module Main where
 import QuickSort
 --import ImageConversion
 import ImageGeneration
+import ClosestPoint
+import SumPrimes
 
 -- ----------------------
 -- QuickSort
@@ -17,4 +19,15 @@ import ImageGeneration
 -- ----------------------
 -- ImageGeneration
 main = imageGen
+-- ----------------------
+
+
+
+-- ----------------------
+-- SumPrimes
+-- runPrimes
+-- ----------------------
+
+-- ClosestPoint ---------
+-- runClosestPoint
 -- ----------------------

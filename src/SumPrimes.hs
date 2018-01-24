@@ -1,7 +1,6 @@
---module SumPrimes where
+module SumPrimes where
 
 import Control.Parallel (par, pseq)
-import Test.QuickCheck
 import Data.Time (getCurrentTime, diffUTCTime)
 
 
@@ -51,7 +50,7 @@ sumPrimesInRangePar (x:xs) = par a (pseq b (a + b))
 
 
 -- executes all above function with time measure
-main = do
+runSumPrimes = do
  putStrLn "==========================================="
  putStrLn "Execute sumTwoPrimes 99839 99961"
  start <- getCurrentTime
