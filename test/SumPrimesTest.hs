@@ -4,8 +4,7 @@ import SumPrimes
 import Test.HUnit
 
 
-main = runTestTT tests
-tests = TestList [
+testsPrimes = [
     TestLabel "test1" test1, 
     TestLabel "test2" test2,
     TestLabel "test3" test3, 
@@ -21,8 +20,7 @@ tests = TestList [
     TestLabel "test13" test13, 
     TestLabel "test14" test14,
     TestLabel "test15" test15, 
-    TestLabel "test16" test16
-]
+    TestLabel "test16" test16 ]
 
 test1 = TestCase (assertEqual "ErathoSieve" [2,3,5,7] (eS [2..10]))
 test2 = TestCase (assertEqual "ErathoSieve" [17,19] (eS [15..22]))

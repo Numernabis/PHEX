@@ -3,17 +3,20 @@ module Fibonacci where
 import Data.Time.Clock (diffUTCTime, getCurrentTime)
 import Control.Parallel (par, pseq)
 
+-- | Fibonacci sequence nth element - recursive without accumulator.
 fib :: Integer -> Integer
 fib 0 = 0
 fib 1 = 1
 fib n = fib (n - 1) + fib (n - 2)
 
+-- | Fibonacci sequence nth element - using /par/ operator.
 parFib :: Integer -> Integer
 parFib 0 = 0
 parFib 1 = 1
 parFib n = par nf (parFib (n - 2) + nf)
     where nf = parFib(n - 1)
 
+-- | Fibonacci sequence nth element - using /par/ and /pseq/ operators.
 parFib' :: Integer -> Integer
 parFib' 0 = 0
 parFib' 1 = 1
@@ -21,6 +24,8 @@ parFib' n = par nf1 (pseq nf2 (nf1 + nf2))
     where nf1 = parFib'(n - 1)
           nf2 = parFib'(n - 2)
 
+-- | Fibonacci sequence nth element - using /par/ and /pseq/ operators, 
+-- parallel only to level d, then normal recursive implementation.
 parFib'' :: Integer -> Integer -> Integer
 parFib'' 0 n = fib n
 parFib'' _ 0 = 0
@@ -29,7 +34,8 @@ parFib'' d n = par nf1 (pseq nf2 (nf1 + nf2))
     where nf1 = parFib'' (d - 1) (n - 1)
           nf2 = parFib'' (d - 1) (n - 2)
 
-
+-- | Main method - counts nth element of fibonacci sequence.
+-- Provides survey on time of execution of those four versions of algorithm.
 fibonacci = do
     let noEl = 35
     putStrLn $ "Counting " ++ show (noEl) ++ "th element of Fibonacci sequence:\n"

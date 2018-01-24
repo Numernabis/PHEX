@@ -27,6 +27,8 @@ dependencies:
 - parallel
 - repa
 - JuicyPixels >= 3.2.9
+- HUnit
+- QuickCheck
 
 library:
   source-dirs: src

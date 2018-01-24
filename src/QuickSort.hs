@@ -44,16 +44,11 @@ randomInts k g =
     let result = take k (randoms g)
     in force result `seq` result
 
--- ----------------------
--- testFunction = seqSort
--- testFunction = parSort
--- testFunction = parSortO 2
--- ----------------------
-
+-- | Main method - executes three above versions of quicksort on list of random Ints.
+-- Provides survey on time of execution of those three algorithms.
 quickSort = do
-    --let count = 500000
-    --input <- randomInts count `fmap` getStdGen
-    let input = [1,15,17,23,46,55,3,12,43,0,1,43,2,85,11,12,12,1,1,2,12,143,10,10]
+    let count = 500000
+    input <- randomInts count `fmap` getStdGen
     putStrLn $ "We have " ++ show (length input) ++ " elements to sort."
 
     start1 <- getCurrentTime

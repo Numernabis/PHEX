@@ -4,8 +4,7 @@ import Fibonacci
 import Test.HUnit
 
 
-main = runTestTT tests
-tests = TestList [
+testsFib = [
     TestLabel "test1" test1, 
     TestLabel "test2" test2,
     TestLabel "test3" test3, 
@@ -17,8 +16,7 @@ tests = TestList [
     TestLabel "test9" test9, 
     TestLabel "test10" test10,
     TestLabel "test11" test11,
-    TestLabel "test12" test12,
-]
+    TestLabel "test12" test12 ]
 
 test1 = TestCase (assertEqual "fib" 514229 (fib 29))
 test2 = TestCase (assertEqual "fib" 2178309 (fib 32))
@@ -32,6 +30,6 @@ test7 = TestCase (assertEqual "parFib'" 514229 (parFib' 29))
 test8 = TestCase (assertEqual "parFib'" 2178309 (parFib' 32))
 test9 = TestCase (assertEqual "parFib'" 9227465 (parFib' 35))
 
-test10 = TestCase (assertEqual "parFib''" 514229 (parFib'' 29))
-test11 = TestCase (assertEqual "parFib''" 2178309 (parFib'' 32))
-test12 = TestCase (assertEqual "parFib''" 9227465 (parFib'' 35))
+test10 = TestCase (assertEqual "parFib''" 514229 (parFib'' 3 29))
+test11 = TestCase (assertEqual "parFib''" 2178309 (parFib'' 3 32))
+test12 = TestCase (assertEqual "parFib''" 9227465 (parFib'' 3 35))

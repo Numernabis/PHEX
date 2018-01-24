@@ -4,8 +4,7 @@ import ClosestPoint
 import Test.HUnit
 
 
-main = runTestTT tests
-tests = TestList [TestLabel "test1" test1, TestLabel "test2" test2]
+testsCPoint = [TestLabel "test1" test1, TestLabel "test2" test2]
 
 test1 = TestCase (assertEqual "(1,1)" (1,1) (closest (1,1) list))
 test2 = TestCase (assertEqual "(55,3)" (55,3) (closest (55,2) list))
