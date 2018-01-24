@@ -2,7 +2,6 @@ module QuicksortTest where
 
 import QuickSort
 import Test.HUnit
---import Test.QuickCheck
 
 testsQS = [
     TestLabel "test1" test1, 

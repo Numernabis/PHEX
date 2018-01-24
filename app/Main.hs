@@ -8,7 +8,7 @@ import ImageConversion
 
 -- ----------------------
 -- Fibonacci
---main = fibonacci
+-- main = fibonacci
 -- ----------------------
 
 -- ----------------------

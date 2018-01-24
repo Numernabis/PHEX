@@ -23,7 +23,7 @@ testsPrimes = [
     TestLabel "test16" test16 ]
 
 test1 = TestCase (assertEqual "ErathoSieve" [2,3,5,7] (eS [2..10]))
-test2 = TestCase (assertEqual "ErathoSieve" [17,19] (eS [15..22]))
+test2 = TestCase (assertEqual "ErathoSieve" [2,3,5,7,11,13,17,19] (eS [2..22]))
 
 test3 = TestCase (assertEqual "SumTwoPrimes" 0 (sumTwoPrimes 20 21))
 test4 = TestCase (assertEqual "SumTwoPrimes" 29 (sumTwoPrimes 29 400))
