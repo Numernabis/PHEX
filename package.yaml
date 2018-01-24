@@ -1,10 +1,10 @@
 name:                PHEX
-version:             0.1.0.0
-github:              "githubuser/PHEX"
+version:             0.2.0.1
+github:              "https://github.com/Numernabis/PHEX"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
+author:              Ludwik Ciechański & Wojciech Wańczyk
+maintainer:          "luigi.zielone@gmail.com"
+copyright:           "2018 LC & WW"
 
 extra-source-files:
 - README.md

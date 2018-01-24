@@ -1,20 +1,19 @@
 module Main where
 
---import Fibonacci
+import Fibonacci
 import QuickSort
 import SumPrimes
 import ClosestPoint
 import ImageConversion
-import ImageGeneration
 
 -- ----------------------
 -- Fibonacci
--- main = fib
+main = fibonacci
 -- ----------------------
 
 -- ----------------------
 -- QuickSort
--- main = qs
+--main = quickSort
 -- ----------------------
 
 -- ----------------------
@@ -29,10 +28,5 @@ import ImageGeneration
 
 -- ----------------------
 -- ImageConversion
-main = imageCon
--- ----------------------
-
--- ----------------------
--- ImageGeneration
--- main = imageGen
+-- main = imageCon
 -- ----------------------

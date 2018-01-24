@@ -17,7 +17,7 @@ pixelGrey (PixelRGB8 r g b) = (div r 3 + div g 3 + div b 3)
 dynToPix :: DynamicImage -> Image PixelRGB8
 dynToPix (ImageRGB8 img) = img
 
--- | Main function - reads path to file, prepares path for save, 
+-- | Main function - reads path to file, prepares path for save,
 -- converts image and saves it.
 imageCon = do
     [pathIn] <- getArgs

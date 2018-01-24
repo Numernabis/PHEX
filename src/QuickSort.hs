@@ -21,17 +21,17 @@ parSort (x:xs)  = force greater `par` (force lesser `pseq` (lesser ++ x:greater)
         greater = parSort [y | y <- xs, y >= x]
 
 -- | Parallel quicksort algorithm - optimized.
-parSortO :: (Ord a) => Int -> [a] -> [a]
-parSortO _ [] = []
-parSortO d list@(x:xs)
+optParSort :: (Ord a) => Int -> [a] -> [a]
+optParSort _ [] = []
+optParSort d list@(x:xs)
   | d <= 0    = seqSort list
   | otherwise = force greater `par` (force lesser `pseq` (lesser ++ x:greater))
     where 
-        lesser  = parSortO dn [y | y <- xs, y <  x]
-        greater = parSortO dn [y | y <- xs, y >= x]
+        lesser  = optParSort dn [y | y <- xs, y <  x]
+        greater = optParSort dn [y | y <- xs, y >= x]
         dn = d - 1
 
--- | Dunction that forces "the entire spine of a list to be 
+-- | Function that forces "the entire spine of a list to be 
 -- evaluated before we give back a constructor."
 force :: [a] -> ()
 force xs = go xs `pseq` ()
@@ -47,15 +47,30 @@ randomInts k g =
 -- ----------------------
 -- testFunction = seqSort
 -- testFunction = parSort
-testFunction = parSortO 2
+-- testFunction = parSortO 2
 -- ----------------------
 
-qs = do
+quickSort = do
     let count = 500000
     input <- randomInts count `fmap` getStdGen
     putStrLn $ "We have " ++ show (length input) ++ " elements to sort."
-    start <- getCurrentTime
-    let sorted = testFunction input
-    putStrLn $ "Sorted all " ++ show (length sorted) ++ " elements."
-    end <- getCurrentTime
-    putStrLn $ show (end `diffUTCTime` start) ++ " elapsed."
+
+    start1 <- getCurrentTime
+    let sorted1 = seqSort input
+    putStrLn $ "Sorted all " ++ show (length sorted1) ++ " elements using seqSort."
+    end1 <- getCurrentTime
+    putStrLn $ show (end1 `diffUTCTime` start1) ++ " elapsed.\n"
+
+    start2 <- getCurrentTime
+    let sorted2 = parSort input
+    putStrLn $ "Sorted all " ++ show (length sorted2) ++ " elements using parSort."
+    end2 <- getCurrentTime
+    putStrLn $ show (end2 `diffUTCTime` start2) ++ " elapsed.\n"
+
+    start3 <- getCurrentTime
+    let sorted3 = optParSort 3 input
+    putStrLn $ "Sorted all " ++ show (length sorted3) ++ " elements using optParSort."
+    end3 <- getCurrentTime
+    putStrLn $ show (end3 `diffUTCTime` start3) ++ " elapsed."
+
+-- -----------------------------------------------------------
