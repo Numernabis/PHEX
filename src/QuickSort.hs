@@ -3,6 +3,8 @@ module QuickSort where
 import System.Random (StdGen, getStdGen, randoms)
 import Data.Time.Clock (diffUTCTime, getCurrentTime)
 import Control.Parallel (par, pseq)
+import Data.List
+import Test.QuickCheck
 
 -- | Sequential quicksort algorithm.
 seqSort :: Ord a => [a] -> [a]
@@ -43,6 +45,21 @@ randomInts :: Int -> StdGen -> [Int]
 randomInts k g = 
     let result = take k (randoms g)
     in force result `seq` result
+
+-- | QuickCheck functions
+prop_minimum :: [Int] -> Property
+prop_minimum xs = not(null xs) ==> head(seqSort xs) == minimum xs
+
+prop_ordered :: [Int] -> Bool
+prop_ordered xs = ordered (seqSort xs) 
+    where ordered [] = True 
+          ordered [x] = True 
+          ordered (x:y:xs) = x <= y && ordered (y:xs)
+
+prop_permutation :: [Int] -> Bool
+prop_permutation xs = permutation xs (seqSort xs)
+    where permutation xs ys = null (xs \\ ys) && null (ys \\ xs)
+
 
 -- | Main method - executes three above versions of quicksort on list of random Ints.
 -- Provides survey on time of execution of those three algorithms.
