@@ -51,7 +51,7 @@ prop_minimum :: [Int] -> Property
 prop_minimum xs = not(null xs) ==> head (seqSort xs) == minimum xs
 
 prop_maximum :: [Int] -> Property
-prop_maximum xs = not(null xs) ==> last (optParSort xs) == maximum xs
+prop_maximum xs = not(null xs) ==> last (optParSort 2 xs) == maximum xs
 
 prop_ordered :: [Int] -> Bool
 prop_ordered xs = ordered (parSort xs) 
