@@ -1,33 +1,38 @@
 module Main where
-    
+
+--import Fibonacci
 import QuickSort
---import ImageConversion
-import ImageGeneration
-import ClosestPoint
 import SumPrimes
+import ClosestPoint
+import ImageConversion
+import ImageGeneration
+
+-- ----------------------
+-- Fibonacci
+-- main = fib
+-- ----------------------
 
 -- ----------------------
 -- QuickSort
---main = qs
+-- main = qs
+-- ----------------------
+
+-- ----------------------
+-- SumPrimes
+-- main = runPrimes
+-- ----------------------
+
+-- ----------------------
+-- ClosestPoint
+-- main = runClosestPoint
 -- ----------------------
 
 -- ----------------------
 -- ImageConversion
--- main = imageCon
+main = imageCon
 -- ----------------------
 
 -- ----------------------
 -- ImageGeneration
-main = imageGen
--- ----------------------
-
-
-
--- ----------------------
--- SumPrimes
--- runPrimes
--- ----------------------
-
--- ClosestPoint ---------
--- runClosestPoint
+-- main = imageGen
 -- ----------------------
