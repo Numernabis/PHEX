@@ -8,17 +8,17 @@ import ImageConversion
 
 -- ----------------------
 -- Fibonacci
--- main = fibonacci
+main = fibonacci
 -- ----------------------
 
 -- ----------------------
 -- QuickSort
-main = quickSort
+-- main = quickSort
 -- ----------------------
 
 -- ----------------------
 -- SumPrimes
--- main = runPrimes
+-- main = runSumPrimes
 -- ----------------------
 
 -- ----------------------

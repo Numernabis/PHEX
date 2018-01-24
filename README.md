@@ -1,6 +1,9 @@
 # PHEX - Parallel Haskell Examples
 Ludwik Ciechański & Wojciech Wańczyk
-projekt z przedmiotu Programowanie Funkcyjne
+
+Projekt z przedmiotu *Programowanie Funkcyjne*.
+
+Badanie czasu wykonania programów równoległych.
 
 ## Fibonacci
 ```haskell

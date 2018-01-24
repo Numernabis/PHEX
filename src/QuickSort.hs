@@ -48,23 +48,26 @@ randomInts k g =
 
 -- | QuickCheck functions
 prop_minimum :: [Int] -> Property
-prop_minimum xs = not(null xs) ==> head(seqSort xs) == minimum xs
+prop_minimum xs = not(null xs) ==> head (seqSort xs) == minimum xs
+
+prop_maximum :: [Int] -> Property
+prop_maximum xs = not(null xs) ==> last (optParSort xs) == maximum xs
 
 prop_ordered :: [Int] -> Bool
-prop_ordered xs = ordered (seqSort xs) 
+prop_ordered xs = ordered (parSort xs) 
     where ordered [] = True 
           ordered [x] = True 
           ordered (x:y:xs) = x <= y && ordered (y:xs)
 
 prop_permutation :: [Int] -> Bool
-prop_permutation xs = permutation xs (seqSort xs)
+prop_permutation xs = permutation xs (parSort xs)
     where permutation xs ys = null (xs \\ ys) && null (ys \\ xs)
 
 
 -- | Main method - executes three above versions of quicksort on list of random Ints.
 -- Provides survey on time of execution of those three algorithms.
 quickSort = do
-    let count = 500000
+    let count = 700000
     input <- randomInts count `fmap` getStdGen
     putStrLn $ "We have " ++ show (length input) ++ " elements to sort."
 
