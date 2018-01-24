@@ -51,25 +51,26 @@ randomInts k g =
 -- ----------------------
 
 quickSort = do
-    let count = 500000
-    input <- randomInts count `fmap` getStdGen
+    --let count = 500000
+    --input <- randomInts count `fmap` getStdGen
+    let input = [1,15,17,23,46,55,3,12,43,0,1,43,2,85,11,12,12,1,1,2,12,143,10,10]
     putStrLn $ "We have " ++ show (length input) ++ " elements to sort."
 
     start1 <- getCurrentTime
     let sorted1 = seqSort input
-    putStrLn $ "Sorted all " ++ show (length sorted1) ++ " elements using seqSort."
+    putStrLn $ "Sorted using seqSort. Control sum: " ++ show (sum sorted1)
     end1 <- getCurrentTime
     putStrLn $ show (end1 `diffUTCTime` start1) ++ " elapsed.\n"
 
     start2 <- getCurrentTime
     let sorted2 = parSort input
-    putStrLn $ "Sorted all " ++ show (length sorted2) ++ " elements using parSort."
+    putStrLn $ "Sorted using parSort. Control sum: " ++ show (sum sorted2)
     end2 <- getCurrentTime
     putStrLn $ show (end2 `diffUTCTime` start2) ++ " elapsed.\n"
 
     start3 <- getCurrentTime
     let sorted3 = optParSort 3 input
-    putStrLn $ "Sorted all " ++ show (length sorted3) ++ " elements using optParSort."
+    putStrLn $ "Sorted using optParSort. Control sum: " ++ show (sum sorted3)
     end3 <- getCurrentTime
     putStrLn $ show (end3 `diffUTCTime` start3) ++ " elapsed."
 
